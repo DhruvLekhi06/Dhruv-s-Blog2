@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 0 0% 100%;
+    --foreground: 215 28% 17%;
+
+    /* Brand colors - Startup vibrant palette */
+    --brand: 220 100% 50%;
+    --brand-foreground: 0 0% 100%;
+    --brand-light: 220 100% 65%;
+    --brand-dark: 220 100% 35%;
+
+    /* UI components */
+    --card: 0 0% 100%;
+    --card-foreground: 215 28% 17%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 28% 17%;
+
+    --primary: 220 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 215 28% 17%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 215 28% 17%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 220 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-brand: linear-gradient(135deg, hsl(220 100% 50%), hsl(250 100% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 100% 50%) 0%, hsl(270 100% 60%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 14% 98%));
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-glow: 0 0 40px hsl(220 100% 50% / 0.15);
+    --shadow-card: 0 8px 32px hsl(220 100% 50% / 0.08);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 220 100% 50%;
+  }
+
+  .dark {
+    /* Base colors */
+    --background: 215 28% 7%;
+    --foreground: 0 0% 98%;
+
+    /* Brand colors maintain vibrancy in dark mode */
+    --brand: 220 100% 55%;
+    --brand-foreground: 0 0% 100%;
+    --brand-light: 220 100% 70%;
+    --brand-dark: 220 100% 40%;
+
+    /* UI components */
+    --card: 215 28% 9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 215 28% 9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 220 100% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 28% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 215 28% 12%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 215 28% 12%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 28% 18%;
+    --input: 215 28% 18%;
+    --ring: 220 100% 55%;
+
+    /* Dark mode gradients */
+    --gradient-brand: linear-gradient(135deg, hsl(220 100% 55%), hsl(250 100% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 100% 55%) 0%, hsl(270 100% 65%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(215 28% 9%), hsl(215 28% 12%));
+    
+    /* Dark mode shadows */
+    --shadow-glow: 0 0 40px hsl(220 100% 55% / 0.2);
+    --shadow-card: 0 8px 32px hsl(220 100% 55% / 0.1);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 220 100% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 220 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Grid pattern for hero background */
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(rgba(220, 220, 220, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(220, 220, 220, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Animation delays */
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+  
+  .animation-delay-700 {
+    animation-delay: 700ms;
+  }
+
+  /* Text clamp utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Blog content styling */
+  .prose h2 {
+    @apply font-display text-2xl font-bold mt-8 mb-4 text-foreground;
+  }
+
+  .prose h3 {
+    @apply font-display text-xl font-bold mt-6 mb-3 text-foreground;
+  }
+
+  .prose p {
+    @apply mb-4 text-foreground leading-relaxed;
+  }
+
+  .prose ul, .prose ol {
+    @apply mb-4 ml-6 space-y-2;
+  }
+
+  .prose li {
+    @apply text-foreground;
+  }
+
+  .prose ul li {
+    @apply list-disc;
+  }
+
+  .prose ol li {
+    @apply list-decimal;
+  }
+
+  .prose strong {
+    @apply font-semibold text-foreground;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-brand pl-4 italic my-6 text-muted-foreground;
+  }
+
+  .prose code {
+    @apply bg-secondary px-2 py-1 rounded text-sm font-mono;
+  }
+
+  /* Smooth scrolling for better UX */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
